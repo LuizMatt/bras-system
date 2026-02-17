@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import LogoIcon from '../atoms/LogoIcon.vue'
-import LogoText from '../atoms/LogoText.vue'
+import AppText from '../atoms/AppText.vue'
 import NavLink from '../atoms/NavLink.vue'
 import MenuIcon from '../atoms/MenuIcon.vue'
 import WhatsAppButton from '../molecules/WhatsAppButton.vue'
@@ -21,7 +21,9 @@ const isMenuOpen = ref(false)
       <!-- Logo -->
       <div class="flex items-center gap-2">
         <LogoIcon :size="32" />
-        <LogoText text="BRASSYSTEM" />
+        <AppText variant="logo">
+          <span class="text-navy">BRAS</span><span class="text-gold">SYSTEM</span>
+        </AppText>
       </div>
 
       <!-- Desktop Nav Links -->

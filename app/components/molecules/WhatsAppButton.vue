@@ -1,24 +1,20 @@
 <script setup lang="ts">
+import AppButton from '../atoms/AppButton.vue'
 import WhatsAppIcon from '../atoms/WhatsAppIcon.vue'
-import ButtonLabel from '../atoms/ButtonLabel.vue'
 
-defineProps<{
+withDefaults(defineProps<{
   variant?: 'full' | 'icon-only'
-}>()
+}>(), {
+  variant: 'full'
+})
 </script>
 
 <template>
-  <button 
-    v-if="variant === 'icon-only'"
-    class="bg-gold hover:bg-gold/90 text-gold-foreground p-2.5 rounded-lg transition-colors"
-  >
+  <AppButton v-if="variant === 'icon-only'" class="!p-2.5">
     <WhatsAppIcon :size="20" />
-  </button>
-  <button 
-    v-else
-    class="bg-gold hover:bg-gold/90 text-gold-foreground px-6 py-2.5 rounded-lg flex items-center justify-center gap-2 transition-colors"
-  >
+  </AppButton>
+  <AppButton v-else>
     <WhatsAppIcon :size="20" />
-    <ButtonLabel text="Falar no WhatsApp" />
-  </button>
+    <span class="text-sm font-semibold">Falar no WhatsApp</span>
+  </AppButton>
 </template>
